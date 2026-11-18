@@ -15,7 +15,7 @@ word = random.choice(words)
 letters = list(word)
 random.shuffle(letters)
 scrambled_word = "".join(letters)
-print(scrambled_word)
+print(f"Scrambled word: {scrambled_word}")
 
 #GUESSING THE WORD
 print()
