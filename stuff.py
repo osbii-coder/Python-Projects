@@ -8,9 +8,9 @@ print("Player 1")
 theme = input("Enter a theme: ")
 words = []
 print()
-words.append(input("Enter a word related to the theme you chose: ").strip(" "))
-words.append(input("Enter another word related to the theme you chose: ").strip(" "))
-words.append(input("Enter another word related to the theme you chose: ").strip(" "))
+
+for x in range (0, 3):
+    words.append(input(f"Enter the {i + 1} word related to the theme you chose: ").strip(" "))
 
 #CHOOSING A WORD AND SCRAMBLING IT
 word = random.choice(words)
@@ -25,13 +25,11 @@ print(f"Scrambled word: {scrambled_word}")
 guess = input(f"The theme is {theme}. Descramble the word (You have 5 tries): ")
 guesses = 1
 
-for x in range(0, 5):
-    if guess == word:
-        print(f"Well done! You took {guesses} guesses.")
-        break
-    if guess != word and guesses != 5:
-        guess = input("Wrong, guess again: ")
-        guesses += 1
+while guess != word and guesses != 5:
+    guess = input("Wrong, guess again: ")
+    guesses += 1
 
-if guesses == 5 and guess != word:
-    print(f"Failed, the word was {word}.")
+if guess == word:
+    print(f"Well done! You took {guesses} guesses.")
+elif guesses == 5 and guess != word:
+    print(f"Failed, the word was {word}")
